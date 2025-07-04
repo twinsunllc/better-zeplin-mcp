@@ -1,4 +1,5 @@
 require 'tiny_mcp'
+require 'dotenv/load'
 require_relative 'better_zeplin_mcp/base_tool'
 require_relative 'better_zeplin_mcp/client'
 

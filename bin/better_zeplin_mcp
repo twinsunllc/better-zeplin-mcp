@@ -3,4 +3,4 @@
 require_relative '../lib/better_zeplin_mcp'
 
 # Start the MCP server
-TinyMCP.serve(BetterZeplinMcp.tools, server_name: 'better-zeplin-mcp')
+TinyMCP.serve(*BetterZeplinMcp.tools, server_name: 'better-zeplin-mcp')

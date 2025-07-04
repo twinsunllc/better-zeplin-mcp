@@ -8,6 +8,7 @@ GEM
       bigdecimal
       rexml
     diff-lcs (1.6.2)
+    dotenv (3.1.8)
     hashdiff (1.2.0)
     json (2.12.2)
     net-http (0.6.0)
@@ -40,6 +41,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  dotenv
   json
   net-http
   rake
