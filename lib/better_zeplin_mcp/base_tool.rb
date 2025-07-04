@@ -14,7 +14,12 @@ module BetterZeplinMcp
         raise data['error']['message'] || 'Unknown error occurred'
       end
       
-      data
+      [
+        {
+          type: "text",
+          text: JSON.pretty_generate(data)
+        }
+      ]
     end
     
     def validate_required_params(**params)
