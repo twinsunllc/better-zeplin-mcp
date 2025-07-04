@@ -2,5 +2,5 @@
 
 require_relative '../lib/better_zeplin_mcp'
 
-# Start the MCP server
-TinyMCP.serve(*BetterZeplinMcp.tools, server_name: 'better-zeplin-mcp')
+# Start the MCP server with our custom server class
+BetterZeplinMcp::Server.new(*BetterZeplinMcp.tools, server_name: 'better-zeplin-mcp').run

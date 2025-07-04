@@ -2,6 +2,7 @@ require 'tiny_mcp'
 require 'dotenv/load'
 require_relative 'better_zeplin_mcp/base_tool'
 require_relative 'better_zeplin_mcp/client'
+require_relative 'better_zeplin_mcp/server'
 
 # Load all tools
 Dir[File.join(__dir__, 'better_zeplin_mcp/tools/*.rb')].each { |file| require file }

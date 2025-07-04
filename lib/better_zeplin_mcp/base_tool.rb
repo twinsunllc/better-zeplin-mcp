@@ -7,6 +7,24 @@ module BetterZeplinMcp
       @client ||= Client.new
     end
     
+    # Override to_h to fix schema type conversion
+    def self.to_h
+      {
+        name: name,
+        description: desc,
+        inputSchema: {
+          type: 'object',
+          properties: props.map { |prop| 
+            [prop.name, { 
+              type: prop.type.to_s, 
+              description: prop.desc 
+            }] 
+          }.to_h,
+          required: props.select(&:req).map(&:name)
+        }
+      }
+    end
+    
     protected
     
     def format_response(data)
