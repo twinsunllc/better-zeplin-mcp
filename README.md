@@ -14,10 +14,12 @@ A Model Context Protocol (MCP) server that provides tools for interacting with t
 
 ### Prerequisites
 
-- Ruby 2.7 or higher
+- Ruby 3.4 or higher (or use Docker)
 - A Zeplin personal access token
 
 ### Installation
+
+#### Option 1: Local Installation
 
 1. Clone this repository:
 ```bash
@@ -40,6 +42,19 @@ cp .env.example .env
 ZEPLIN_API_TOKEN=your_token_here
 ```
 
+#### Option 2: Docker Installation
+
+1. Clone this repository:
+```bash
+git clone <repository-url>
+cd better-zeplin-mcp
+```
+
+2. Build the Docker image:
+```bash
+docker build -t better-zeplin-mcp .
+```
+
 To get a Zeplin API token:
 1. Go to [Zeplin Developer](https://developer.zeplin.io/)
 2. Sign in with your Zeplin account
@@ -49,7 +64,9 @@ To get a Zeplin API token:
 
 Add this MCP server to your Claude Desktop configuration:
 
-### macOS/Linux
+### Local Installation
+
+#### macOS/Linux
 Edit `~/.config/claude/config.json`:
 
 ```json
@@ -65,16 +82,43 @@ Edit `~/.config/claude/config.json`:
 }
 ```
 
-### Windows
+#### Windows
 Edit `%APPDATA%/Claude/config.json` with the same configuration.
+
+### Docker Installation
+
+#### macOS/Linux
+Edit `~/.config/claude/config.json`:
+
+```json
+{
+  "mcpServers": {
+    "better-zeplin": {
+      "command": "docker",
+      "args": ["run", "--rm", "-i", "-e", "ZEPLIN_API_TOKEN=your_token_here", "better-zeplin-mcp"],
+      "env": {}
+    }
+  }
+}
+```
+
+#### Windows
+Edit `%APPDATA%/Claude/config.json` with the same Docker configuration.
 
 ## Usage with Claude Code
 
 Add the MCP server to your Claude Code configuration:
 
+### Local Installation
 ```bash
 # Add to your MCP configuration
 claude-code mcp add better-zeplin /path/to/better-zeplin-mcp/bin/better_zeplin_mcp
+```
+
+### Docker Installation
+```bash
+# Add Docker-based MCP server
+claude-code mcp add better-zeplin docker -- run --rm -i -e ZEPLIN_API_TOKEN=your_token_here better-zeplin-mcp
 ```
 
 Or configure manually in your MCP settings file with the same JSON structure as Claude Desktop.
@@ -143,6 +187,12 @@ lib/
 3. **"Ruby not found"**
    - Make sure Ruby is installed and in your PATH
    - The executable uses `#!/usr/bin/env ruby`
+   - Consider using the Docker installation if Ruby setup is problematic
+
+4. **Docker-specific issues**
+   - Ensure Docker is installed and running
+   - Check that the image was built successfully: `docker images | grep better-zeplin-mcp`
+   - For permission issues, ensure Docker daemon is accessible
 
 ### Debug Mode
 

@@ -1,0 +1,14 @@
+.git
+.gitignore
+.env
+.env.local
+.env.*.local
+*.log
+tmp/
+test/
+spec/
+coverage/
+.rspec_status
+.bundle/
+vendor/bundle/
+.DS_Store

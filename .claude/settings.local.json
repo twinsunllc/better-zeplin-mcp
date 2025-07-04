@@ -7,7 +7,23 @@
       "Bash(bundle init:*)",
       "Bash(bundle install:*)",
       "Bash(chmod:*)",
-      "Bash(git add:*)"
+      "Bash(git add:*)",
+      "mcp__ht-mcp__ht_create_session",
+      "mcp__ht-mcp__ht_take_snapshot",
+      "Bash(ls:*)",
+      "Bash(test:*)",
+      "Bash(./bin/better_zeplin_mcp:*)",
+      "Bash(timeout:*)",
+      "Bash(gem list:*)",
+      "mcp__ht-mcp__ht_execute_command",
+      "mcp__ht-mcp__ht_send_keys",
+      "Bash(ruby test_zeplin_api.rb:*)",
+      "Bash(ruby:*)",
+      "Bash(git commit:*)",
+      "Bash(gem which:*)",
+      "WebFetch(domain:modelcontextprotocol.io)",
+      "Bash(grep:*)",
+      "Bash(rm:*)"
     ],
     "deny": []
   }
