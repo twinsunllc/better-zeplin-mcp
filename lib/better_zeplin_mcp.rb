@@ -18,6 +18,8 @@ module BetterZeplinMcp
       Tools::GetScreenAnnotations,
       Tools::GetScreenVariants,
       Tools::GetScreenVariant,
+      Tools::GetLatestScreenVersion,
+      Tools::GetScreenAssets,
       Tools::GetStyleguide,
       Tools::GetProjectComponents,
       Tools::GetStyleguideComponents,

@@ -1,0 +1,12 @@
+example_id                                              | status | run_time        |
+------------------------------------------------------- | ------ | --------------- |
+./spec/tools/get_latest_screen_version_spec.rb[1:1:1]   | passed | 0.00194 seconds |
+./spec/tools/get_latest_screen_version_spec.rb[1:1:2:1] | passed | 0.00036 seconds |
+./spec/tools/get_latest_screen_version_spec.rb[1:1:3:1] | passed | 0.00042 seconds |
+./spec/tools/get_screen_assets_spec.rb[1:1:1:1]         | passed | 0.00074 seconds |
+./spec/tools/get_screen_assets_spec.rb[1:1:2:1]         | passed | 0.01134 seconds |
+./spec/tools/get_screen_assets_spec.rb[1:1:3:1]         | passed | 0.00034 seconds |
+./spec/tools/get_screen_assets_spec.rb[1:1:4:1]         | passed | 0.00055 seconds |
+./spec/tools/get_screen_assets_spec.rb[1:1:5:1]         | passed | 0.00033 seconds |
+./spec/tools/get_screen_assets_spec.rb[1:1:6:1]         | passed | 0.00035 seconds |
+./spec/tools/get_screen_assets_spec.rb[1:1:7:1]         | passed | 0.00046 seconds |

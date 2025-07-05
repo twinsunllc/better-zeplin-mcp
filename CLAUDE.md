@@ -20,6 +20,8 @@ better-zeplin-mcp/
 │   │       ├── get_screen_annotations.rb
 │   │       ├── get_screen_variants.rb
 │   │       ├── get_screen_variant.rb
+│   │       ├── get_latest_screen_version.rb
+│   │       ├── get_screen_assets.rb
 │   │       ├── get_styleguide.rb
 │   │       ├── get_project_components.rb
 │   │       ├── get_styleguide_components.rb
@@ -98,17 +100,37 @@ better-zeplin-mcp/
     - Required: `project_id`, `screen_id`, `variant_id`
     - Returns variant details
 
+12. **get_latest_screen_version**: Gets the latest version of a screen with full details
+    - Required: `project_id`, `screen_id`
+    - Returns complete screen version including:
+      - Downloadable asset URLs with multiple formats (PNG, SVG, JPG, PDF)
+      - Asset densities for different screen resolutions
+      - Layer structure with styling information
+      - Screen dimensions and visual properties
+      - Full metadata for the screen version
+    - Use this tool when you need to download assets or analyze screen structure
+
+13. **get_screen_assets**: Gets paginated assets from a screen
+    - Required: `project_id`, `screen_id`
+    - Optional: `offset` (default: 0), `limit` (default: 20, max: 100)
+    - Returns:
+      - Paginated array of assets with download URLs
+      - Each asset includes multiple formats and densities
+      - Pagination metadata (offset, limit, total, has_more)
+    - Use this tool when you specifically need to list or download assets
+    - Supports local pagination to control response size
+
 ### Styleguide Tools
 
-12. **get_styleguide**: Gets styleguide information
+14. **get_styleguide**: Gets styleguide information
     - Required: `styleguide_id`
     - Returns styleguide details
 
-13. **get_styleguide_components**: Gets all components in a styleguide
+15. **get_styleguide_components**: Gets all components in a styleguide
     - Required: `styleguide_id`
     - Returns array of component objects
 
-14. **get_styleguide_component**: Gets a single component from a styleguide
+16. **get_styleguide_component**: Gets a single component from a styleguide
     - Required: `styleguide_id`, `component_id`
     - Returns component details
 
