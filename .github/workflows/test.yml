@@ -43,14 +43,8 @@ jobs:
   bearer:
     name: Bearer
     runs-on: ubuntu-latest
-    container:
-      image: ghcr.io/${{ github.repository }}:${{ github.sha }}-test
-      credentials:
-        username: ${{ github.actor }}
-        password: ${{ secrets.GITHUB_TOKEN }}
     steps:
       - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683  # v4.2.2
-      - run: git config --global --add safe.directory /__w/rails-app-base/rails-app-base
       - name: Bearer
         uses: bearer/bearer-action@828eeb928ce2f4a7ca5ed57fb8b59508cb8c79bc  # v2
         with:
