@@ -14,35 +14,10 @@ A Model Context Protocol (MCP) server that provides tools for interacting with t
 
 ### Prerequisites
 
-- Ruby 3.4 or higher (or use Docker)
+- Docker
 - A Zeplin personal access token
 
 ### Installation
-
-#### Option 1: Local Installation
-
-1. Clone this repository:
-```bash
-git clone <repository-url>
-cd better-zeplin-mcp
-```
-
-2. Install dependencies:
-```bash
-bundle install
-```
-
-3. Create environment file:
-```bash
-cp .env.example .env
-```
-
-4. Add your Zeplin API token to `.env`:
-```
-ZEPLIN_API_TOKEN=your_token_here
-```
-
-#### Option 2: Docker Installation
 
 1. Clone this repository:
 ```bash
@@ -64,28 +39,7 @@ To get a Zeplin API token:
 
 Add this MCP server to your Claude Desktop configuration:
 
-### Local Installation
-
-#### macOS/Linux
-Edit `~/.config/claude/config.json`:
-
-```json
-{
-  "mcpServers": {
-    "better-zeplin": {
-      "command": "/path/to/better-zeplin-mcp/bin/better_zeplin_mcp",
-      "env": {
-        "ZEPLIN_API_TOKEN": "your_token_here"
-      }
-    }
-  }
-}
-```
-
-#### Windows
-Edit `%APPDATA%/Claude/config.json` with the same configuration.
-
-### Docker Installation
+### Configuration
 
 #### macOS/Linux
 Edit `~/.config/claude/config.json`:
@@ -95,7 +49,7 @@ Edit `~/.config/claude/config.json`:
   "mcpServers": {
     "better-zeplin": {
       "command": "docker",
-      "args": ["run", "--rm", "-i", "-e", "ZEPLIN_API_TOKEN=your_token_here", "better-zeplin-mcp"],
+      "args": ["run", "--rm", "-i", "-e", "ZEPLIN_API_TOKEN=your_token_here", "twinsunllc/better-zeplin-mcp"],
       "env": {}
     }
   }
@@ -109,16 +63,9 @@ Edit `%APPDATA%/Claude/config.json` with the same Docker configuration.
 
 Add the MCP server to your Claude Code configuration:
 
-### Local Installation
-```bash
-# Add to your MCP configuration
-claude-code mcp add better-zeplin /path/to/better-zeplin-mcp/bin/better_zeplin_mcp
-```
-
-### Docker Installation
 ```bash
 # Add Docker-based MCP server
-claude-code mcp add better-zeplin docker -- run --rm -i -e ZEPLIN_API_TOKEN=your_token_here better-zeplin-mcp
+claude-code mcp add better-zeplin docker -- run --rm -i -e ZEPLIN_API_TOKEN=your_token_here twinsunllc/better-zeplin-mcp
 ```
 
 Or configure manually in your MCP settings file with the same JSON structure as Claude Desktop.
@@ -159,7 +106,7 @@ Once configured, you can ask Claude questions like:
 
 ### Running Tests
 ```bash
-rake spec
+bundle exec rspec
 ```
 
 ### Project Structure
@@ -184,14 +131,9 @@ lib/
    - Ensure the path to the executable is correct in your config
    - Check that the file has execute permissions: `chmod +x bin/better_zeplin_mcp`
 
-3. **"Ruby not found"**
-   - Make sure Ruby is installed and in your PATH
-   - The executable uses `#!/usr/bin/env ruby`
-   - Consider using the Docker installation if Ruby setup is problematic
-
-4. **Docker-specific issues**
+3. **Docker-specific issues**
    - Ensure Docker is installed and running
-   - Check that the image was built successfully: `docker images | grep better-zeplin-mcp`
+   - Pull the latest image: `docker pull twinsunllc/better-zeplin-mcp`
    - For permission issues, ensure Docker daemon is accessible
 
 ### Debug Mode
@@ -203,7 +145,27 @@ DEBUG=1 ./bin/better_zeplin_mcp
 
 ## License
 
-[Add your license here]
+MIT License
+
+Copyright (c) 2025 Twin Sun, LLC
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
 
 ## Contributing
 

@@ -44,7 +44,7 @@ better-zeplin-mcp/
 1. Clone the repository
 2. Copy `.env.example` to `.env` and add your Zeplin API token
 3. Run `bundle install` to install dependencies
-4. Run tests with `rake spec`
+4. Run tests with `bundle exec rspec`
 
 ## Environment Variables
 
@@ -184,12 +184,12 @@ This will start the MCP server listening on stdin/stdout for JSON-RPC requests.
 
 Run all tests:
 ```bash
-rake spec
+bundle exec rspec
 ```
 
 Run specific test:
 ```bash
-rspec spec/tools/list_projects_spec.rb
+bundle exec rspec spec/tools/list_projects_spec.rb
 ```
 
 ## Common Zeplin API Patterns
