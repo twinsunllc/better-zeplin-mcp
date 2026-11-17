@@ -11,7 +11,7 @@ on:
 
 jobs:
   test:
-    runs-on: ubuntu-latest
+    runs-on: [runs-on,runner=2cpu-linux-x64,image=ubuntu24-full-x64,"run-id=${{ github.run_id }}"]
     
     strategy:
       matrix:
@@ -42,7 +42,7 @@ jobs:
 
   bearer:
     name: Bearer
-    runs-on: ubuntu-latest
+    runs-on: [runs-on,runner=2cpu-linux-x64,image=ubuntu24-full-x64,"run-id=${{ github.run_id }}"]
     steps:
       - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683  # v4.2.2
       - name: Bearer
@@ -53,14 +53,14 @@ jobs:
 
   actions_security:
     name: GitHub Actions Security Check
-    runs-on: ubuntu-latest
+    runs-on: [runs-on,runner=2cpu-linux-x64,image=ubuntu24-full-x64,"run-id=${{ github.run_id }}"]
     steps:
       - name: Checkout repository
         uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683  # v4.2.2
 
       - name: Run GitHub Actions security audit
         id: audit
-        uses: twinsunllc/github-actions-security-checker@965263a11209927fe078a206aee0aba3acc1ae58  # v1.4.0
+        uses: twinsunllc/github-actions-security-checker@ec20bb8f2e3a8e1d6553c564586aeac84edd0f17 # v1.5.1
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           allowlist: |
